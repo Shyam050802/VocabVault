@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "VocabVault",
+  "version": "1.0",
+  "description": "A simple dictionary extension",
+  "permissions": ["scripting", "activeTab", "contextMenus", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["styles.css"],
+      "js": ["content.js", "functions.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "64": "sideicon.png"
+  },
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "sideicon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "matches": ["<all_urls>"],
+      "resources": [
+        "error.png",
+        "sideicon.png",
+        "vol.png",
+        "gificon.gif",
+        "styles.css"
+      ]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "resources": [
+        "https://fonts.googleapis.com/css2family=Poppins:wght@300;400;500&display=swap"
+      ]
+    }
+  ]
+}
